@@ -36,32 +36,27 @@
 \section{How Basic Elements Look} % ===========================================
 
 \begin{frame} % ---------------------------------------------------------------
-\frametitle{Regular Titles Are Colored}
-\framesubtitle{So are subtitles!}
+\frametitle{Adjoint Reconstruction}
+%\framesubtitle{So are subtitles!}
 
-This is what a typical paragraph of text looks like on the slides.
-This is what a typical paragraph of text looks like on the slides.
-This is what a typical paragraph of text looks like on the slides.
+Fukumori et al. (2015) demonstrate that changes in wind stress drive bottom pressure variability relative to other atmospheric controls. Does this hold at high frequency?
 
 \vspace{.5cm}
-This is what an equation looks like (Green's first identity).
-\begin{equation*}
-    \int_{\Omega} \nabla u \cdot \nabla v \:d\Omega
-    = \int_{\Gamma} v \nabla u \cdot \hat{\mathbf{n}} \:d\Gamma
-    - \int_{\Omega} v \Delta u \:d\Omega
-\end{equation*}
-Use the \texttt{itemize} environment for a bullet-point list:
-\begin{itemize}
-    \item First item
-    \item Second item
-    \item[$\ast$] Item with a custom marker
-\end{itemize}
 
-Use the \texttt{enumerate} environment for a numbered list:
-\begin{enumerate}
-    \item First item
-    \item Second item
-\end{enumerate}
+Consider the QoI of bottom pressure:
+\begin{equation*}
+    \mathcal{J}(t)=p_b
+\end{equation*}
+and it's daily mean anomaly 
+\begin{equation*}
+    \delta\mathcal{J}(t)=p_b - \overline{p_b}
+\end{equation*}
+
+Taylor series reconstruction 
+
+\begin{equation*}
+    \widetilde{\delta\mathcal{J}}(t)=\sum_i\sum_{\bf x}\sum_{\Delta t}\frac{\partial \mathcal{J}}{\partial\phi_i({\bf x}, \Delta t)}\delta\phi_i({\bf x},t-\Delta t)
+\end{equation*}
 \end{frame}
 
 \begin{frame} % ---------------------------------------------------------------
@@ -107,6 +102,23 @@ Now we're back to a single-column format.
 }
 
 \section{Oden Theme Colors} % =================================================
+\begin{frame}
+    \begin{figure}
+        \centering
+        \begin{minipage}{.5\textwidth}
+          \centering
+          \includegraphics[width=1\linewidth]{globe_inset_vnc4320.png}
+          \label{fig:test1}
+        \end{minipage}%
+        \begin{minipage}{.5\textwidth}
+          \centering
+          \includegraphics[width=1\linewidth]{globe_inset_vnc90.png}
+          \label{fig:test2}
+        \end{minipage}
+        \end{figure}
+\end{frame}
+
+
 
 \begin{frame}
 \frametitle{Oden Color Palette}
