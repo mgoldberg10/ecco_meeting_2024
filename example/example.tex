@@ -1,4 +1,5 @@
 \documentclass[10pt, aspectratio=169]{oden_beamer}
+\usepackage{pgf}
 % Try using aspectratio=169, handout, blue, and/or dark in the [] above.
 
 %%%%%%%%%%%%%%%%%%%%%%
@@ -9,7 +10,7 @@
 
 \AtBeginSection[]{              % Show outline at beginning of each section
 \begin{frame}
-    \frametitle{Outline}
+%    \frametitle{Outline}
     \tableofcontents[currentsection]
 \end{frame}
 }
@@ -17,29 +18,54 @@
 \begin{document} % ============================================================
 
 % Title page definitions ------------------------------------------------------
-\title{Regional Ocean State Estimation with Subsea Cable Data}
+\title{Subsea cable observing system design with regional models}
 \author{\textbf{Matthew Goldberg}\\
         Patrick Heimbach
 }
 % \institute{Oden Institute for Computational Engineering and Sciences}
 \date{
     \centering
-    % Conference Name
-    % \\
-    March 20, 2024
+    ECCO Annual Meeting\\
+    March 21, 2024
 }
 
 \begin{frame} % ---------------------------------------------------------------
 \titlepage
 \end{frame}
 
-\section{How Basic Elements Look} % ===========================================
+\section{SMART Cables}
+\begin{frame} 
 
+\frametitle{SMART Cables}
+\begin{figure}
+    \centering
+    \begin{minipage}{.4\textwidth}
+      \centering
+      \includegraphics[width=.8\linewidth]{smartcable.jpeg}
+      \label{fig:smartcable}
+    \end{minipage}%
+    \begin{minipage}{.4\textwidth}
+    \begin{block}{Comparison to GRACE}
+        \begin{itemize}
+            \item hourly monitoring
+            \item no aliasing needed
+        \end{itemize}
+    \end{block}
+    \end{minipage}
+\end{figure}
+\end{frame}
+
+\section{Bottom pressure anomaly and wind} % ===========================================
+
+\begin{frame} % ---------------------------------------------------------------
+\frametitle{Bottom pressure anomaly and wind}
+Wind stress dominates seasonal bottom pressure changes relative to other atmospheric controls \cite{Fukumori}\cite{chen_2023}.
+\end{frame}
 \begin{frame} % ---------------------------------------------------------------
 \frametitle{Adjoint Reconstruction}
 %\framesubtitle{So are subtitles!}
 
-Fukumori et al. (2015) demonstrate that changes in wind stress drive bottom pressure variability relative to other atmospheric controls. Does this hold at high frequency?
+Can we demonstrate the wind stress-bottom pressure connection at higher frequencies?
 
 \vspace{.5cm}
 
@@ -52,7 +78,7 @@ and it's daily mean anomaly
     \delta\mathcal{J}(t)=p_b - \overline{p_b}
 \end{equation*}
 
-Taylor series reconstruction 
+Taylor series reconstruction using gradients w.r.t forcings $\phi_i$
 
 \begin{equation*}
     \widetilde{\delta\mathcal{J}}(t)=\sum_i\sum_{\bf x}\sum_{\Delta t}\frac{\partial \mathcal{J}}{\partial\phi_i({\bf x}, \Delta t)}\delta\phi_i({\bf x},t-\Delta t)
@@ -101,7 +127,20 @@ Now we're back to a single-column format.
     \item Use \texttt{\textbackslash setbeameroption\{show notes\}} in the preamble to show the speaker notes.
 }
 
-\section{Oden Theme Colors} % =================================================
+\section{Observing System Assessment}
+\begin{frame}
+\frametitle{Observing System Simulated Experiments (OSSEs)}
+\begin{itemize}
+    \item Nature Run (NR)
+    \begin{itemize}
+        \item Synthetic data
+        \item Instrument, representation error
+    \end{itemize}
+    \item Data Assimilation system
+\end{itemize}
+\end{frame}
+
+
 \begin{frame}
     \begin{figure}
         \centering
@@ -233,4 +272,9 @@ Using these names instead of specific colors makes it easy to switch between the
 The dark themes are particularly effective for virtual presentations (Zoom, etc.) and for rooms with low lighting.
 \end{frame}
 
+\begin{frame}[allowframebreaks]
+    \frametitle{References}
+    \bibliographystyle{apalike}
+    \bibliography{ecco_meeting_2024.bib}
+\end{frame}
 \end{document}
